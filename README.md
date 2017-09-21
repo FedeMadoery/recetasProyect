@@ -1,4 +1,6 @@
-# CourseProyect
+Proyecto para ir agregando, editando y viendo "Recetas", asi como tambien crear una "Lista de Compra" acorde a las mismas y mejorar el uso de Angular 4. Mas adelante se planea tener una coneccion a un servidor remoto, para almacenar y recuperar los datos.
+
+# RecetasProyect
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
 
