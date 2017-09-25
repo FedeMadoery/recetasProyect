@@ -2,7 +2,7 @@
   <h2>Lista de Compras</h2>
   <hr>
   <div class="col-xs-10">
-    <app-shopping-edit [ingredientToEdit]="ingredientToEdit"></app-shopping-edit>
+    <app-shopping-edit (addIngredient)="ingredients.push($event)" [ingredientToEdit]="ingredientToEdit"></app-shopping-edit>
     <hr>
     <ul class="list-group">
       <a href="#" class="list-group-item"
