@@ -11,9 +11,12 @@ export class ShoppingListComponent implements OnInit {
     new Ingredient('Manzanas',5),
     new Ingredient('Harina',1)
   ];
+  ingredientToEdit:Ingredient = new Ingredient("",null);
   constructor() { }
 
   ngOnInit() {
   }
-
+  onClickIngredientToEdit(ingredient: Ingredient){
+    this.ingredientToEdit = ingredient;
+  }
 }

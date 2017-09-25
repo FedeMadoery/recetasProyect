@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit,} from '@angular/core';
+import {Ingredient} from "../../shared/ingredients.model";
 
 @Component({
   selector: 'app-shopping-edit',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingEditComponent implements OnInit {
 
+  @Input('ingredientToEdit') ingredient: Ingredient;
   constructor() { }
 
   ngOnInit() {
   }
 
+  onAdd(){
+
+  }
+  onDelete(){
+
+  }
+  onClean(){
+    this.ingredient = new Ingredient("",null)
+  }
 }
