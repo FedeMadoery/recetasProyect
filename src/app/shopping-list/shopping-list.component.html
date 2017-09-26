@@ -1,9 +1,15 @@
 <div class="row">
   <h2>Lista de Compras</h2>
   <hr>
+  <div
+    class="alert alert-danger"
+    (click)="ingredientExist = false"
+    *ngIf="ingredientExist">
+    El ingrediente ya <strong>existe.</strong>
+  </div>
   <div class="col-xs-10">
     <app-shopping-edit
-      (addIngredient)="ingredients.push($event)"
+      (addIngredient)="addIngredient($event)"
       [ingredientToEdit]="ingredientToEdit"
     ></app-shopping-edit>
     <hr>
