@@ -1,13 +1,32 @@
 <div class="row">
   <div class="col-xs-12">
-    <button class="btn btn-success">+ Nueva Receta</button>
+    <button class="btn btn-success" (click)="addRecipe()">+ Nueva Receta</button>
+  </div>
+  <div class="col-xs-12" *ngIf="showAlertError">
+    <hr>
+    <div
+      class="alert alert-danger alert-dismissible">
+      <a href="#" class="close" (click)="showAlertError=false" >&times;</a>
+      {{alertError}}
+    </div>
   </div>
 </div>
 <hr>
 <div class="row">
     <app-recipe-item
-      (clickRecipe)="onRecipeClicked($event)"
-      *ngFor="let recipe of recipes"
-      [recipeElement]="recipe">
+      *ngFor="let recipe of recipes; let id = index "
+      [recipeElement]="recipe"
+      [recipeId]="id">
     </app-recipe-item>
+  <div class="col-xs-12" *ngIf="recipes.length < 1 && showAlertEmpty">
+    <div
+      class="alert alert-danger alert-dismissible">
+      <a href="#" class="close" (click)="showAlertEmpty=false">&times;</a>
+      No hay recetas para mostrar, por favor agregue una nueva.
+    </div>
+  </div>
 </div>
+
+
+
+

@@ -1,36 +1,43 @@
-<div class="row">
-  <div class="col-xs-10">
-    <h1>{{recipe.name}}</h1>
+<div *ngIf="recipe; else infoText" class="row">
+  <div class="row">
+    <div class="col-xs-8">
+      <h1>{{recipe.name}}</h1>
+    </div>
+    <div class="col-xs-2">
+      <br>
+      <div dropdown class="btn-group">
+        <button dropdownToggle class="btn btn-primary dropdown-toggle"
+                type="button" >Opciones <span class="caret"></span></button>
+        <ul *dropdownMenu role="menu" class="dropdown-menu">
+          <li><a href="#">Agregar a Lista de Compra</a></li>
+          <li><a href="#">Editar Receta</a></li>
+          <li (click)="deleteRecipe()"><a href="#">Borrar</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="col-xs-2">
-    <br>
-    <div dropdown class="btn-group">
-      <button dropdownToggle class="btn btn-primary dropdown-toggle"
-              type="button" >Opciones <span class="caret"></span></button>
-      <ul *dropdownMenu role="menu" class="dropdown-menu">
-        <li role="menuitem"><a href="#">Agregar a Lista de Compra</a></li>
-        <li role="menuitem"><a href="#">Editar Receta</a></li>
-        <li role="menuitem"><a href="#">Borrar</a></li>
-      </ul>
+  <div class="row">
+    <div class="col-xs-12">
+      <label>Descripción:</label>
+      {{recipe.description}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <label>Ingredientes:</label>Ingredientes
+    </div>
+  </div>
+  <div class="row">
+
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <img [src]="recipe.imagePath" alt="" class="img-responsive" style="max-height: 200px">
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-xs-12">
-    <label>Descripción:</label>
-    {{recipe.description}}
+<ng-template #infoText>
+  <div class="alert alert-info">
+    <strong>Selecciona </strong> una receta para ver su informacion!
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <label>Ingredientes:</label>Ingredientes
-  </div>
-</div>
-<div class="row">
-
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <img [src]="recipe.imagePath" alt="" class="img-responsive" style="max-height: 200px">
-  </div>
-</div>
+</ng-template>

@@ -1,16 +1,8 @@
 <div class="row">
   <div class="col-md-5">
-    <app-recipe-list
-      (clickRecipe)="onRecipeClicked($event)"></app-recipe-list>
+    <app-recipe-list></app-recipe-list>
   </div>
   <div class="col-md-7">
-    <app-recipe-detail
-      *ngIf="recipeClicked; else infoText"
-      [recipeToDetail]="recipeClicked"></app-recipe-detail>
-    <ng-template #infoText>
-     <div class="alert alert-info">
-       <strong>Selecciona </strong> una receta para ver su informacion!
-     </div>
-    </ng-template>
+    <app-recipe-detail></app-recipe-detail>
   </div>
 </div>

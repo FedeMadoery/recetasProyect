@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Recipe} from "../recipe.model";
+import {RecipeService} from "../../services/recipe-service.service";
 
 @Component({
   selector: 'app-recipe-list',
@@ -7,18 +8,24 @@ import {Recipe} from "../recipe.model";
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  @Output() clickRecipe = new EventEmitter<Recipe>();
-  recipes: Recipe[] =[
-    new Recipe('Receta de prueba','Esta es una receta de prueba - No es rica','http://www.essen.com.ar/imgs/w300-h400-c300.400/contenido/editor/Image/2015/recetas-essen-por-tipo-de-comida.jpg')
+  showAlertError: boolean = false;
+  showAlertEmpty: boolean = true;
+  recipes: Recipe[];
+  alertError: string = "Some Error.";
 
-  ];
-
-  constructor() { }
+  constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
+    this.recipes = this.recipeService.getRecipes();
+    this.recipeService.addedRecipe.subscribe((error: string)=> {
+        this.alertError = error;
+        this.showAlertError = true;
+    })
   }
 
-  onRecipeClicked(recipeToDetail: Recipe){
-    this.clickRecipe.emit(recipeToDetail);
+  addRecipe(){
+    console.log("Add Recipe Btn");
+    this.showAlertEmpty = true;
   }
+
 }

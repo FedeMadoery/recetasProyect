@@ -11,6 +11,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import {FormsModule} from "@angular/forms";
+import { MydropdownDirective } from './shared/mydropdown.directive';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {FormsModule} from "@angular/forms";
     RecipeItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
+    MydropdownDirective,
   ],
   imports: [
     BrowserModule,
