@@ -1,0 +1,11 @@
+#add,#minus,#delete{
+  text-decoration: none;
+  float: right;
+  margin: 5px;
+}
+#delete{
+  color: orangered;
+}
+#add:hover,#minus:hover,#delete:hover{
+  cursor: pointer;
+}

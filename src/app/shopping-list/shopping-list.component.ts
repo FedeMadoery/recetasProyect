@@ -17,7 +17,6 @@ export class ShoppingListComponent implements OnInit {
     this.ingredients= this.shopService.getIngredients();
     this.shopService.addedIngredient.subscribe((error: string) => {
       if(error === "Existing Ingredient"){
-        console.log("Funciona")
         this.ingredientExist = true;
       }
     })
