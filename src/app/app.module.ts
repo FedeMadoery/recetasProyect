@@ -12,6 +12,10 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { BsDropdownModule } from 'ngx-bootstrap';
 import {FormsModule} from "@angular/forms";
 import { MydropdownDirective } from './shared/mydropdown.directive';
+import { HomeComponent } from './home/home.component';
+import {AppRoutingModule} from "./app-routing.module";
+import { RecipeAlertComponent } from './recipes/recipe-alert/recipe-alert.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +28,15 @@ import { MydropdownDirective } from './shared/mydropdown.directive';
     ShoppingListComponent,
     ShoppingEditComponent,
     MydropdownDirective,
+    HomeComponent,
+    RecipeAlertComponent,
+    RecipeEditComponent,
   ],
   imports: [
     BrowserModule,
     BsDropdownModule.forRoot(),
     FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

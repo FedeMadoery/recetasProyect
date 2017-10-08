@@ -1,49 +1,47 @@
 <div class="row">
+  <h2>Editar Receta</h2>
   <div class="row">
-    <div class="col-xs-8">
-      <h1>{{recipe.name}}</h1>
-    </div>
-    <div class="col-xs-2">
-      <br>
-      <div dropdown class="btn-group navbar-right">
-        <button dropdownToggle
-                class="btn btn-primary dropdown-toggle"
-                type="button">Opciones <span class="caret"></span></button>
-        <ul *dropdownMenu class="dropdown-menu">
-          <li><a (click)="addToShopingList()"  >Agregar a Lista de Compra</a></li>
-          <li><a routerLink="edit">Editar Receta</a></li>
-          <li><a (click)="deleteRecipe()">Borrar</a></li>
-        </ul>
-      </div>
+    <div class="col-xs-12">
+      <label>Nombre:</label>
+      <input type="text"
+             class="form-control"
+             [(ngModel)]="recipe.name">
     </div>
   </div>
+  <br>
   <div class="row">
     <div class="col-xs-12">
       <label>Descripción:</label>
-      {{recipe.description}}
+      <input type="text"
+        class="form-control"
+        [(ngModel)]="recipe.description">
     </div>
   </div>
+  <br>
   <div class="row">
     <div class="col-xs-12">
       <label>Ingredientes:</label>
       <ul class="list-group col-xs-12">
         <li *ngFor="let ingredient of recipe.ingredients; let id = index" class="list-group-item">
-            {{ingredient.name}} - ({{ingredient.amount}})
+          {{ingredient.name}} - ({{ingredient.amount}})
           <a id="delete" (click)="deleteIngredient(id)" class="glyphicon glyphicon-trash glyph"></a>
           <a id="minus" (click)="reduceIngredient(ingredient)" class="glyphicon glyphicon-minus glyph"></a>
           <a id="add" (click)="addToIngredient(ingredient)" class="glyphicon glyphicon-plus glyph"></a>
         </li>
-
       </ul>
     </div>
   </div>
   <div class="row">
-
-  </div>
-  <div class="row">
     <div class="col-xs-12">
-      <img [src]="recipe.imagePath" alt="" class="img-responsive" style="max-height: 200px">
+      <label>Imagen Path:</label>
+      <input type="text"
+             class="form-control"
+             [(ngModel)]="recipe.imagePath">
+    </div>
+    <div class="col-xs-12">
+      <br>
+      <label>Imagen:</label>
+      <img [src]="recipe.imagePath" alt="Link roto o invalido" class="img-responsive" style="max-height: 200px">
     </div>
   </div>
 </div>
-

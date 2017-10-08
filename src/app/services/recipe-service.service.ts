@@ -10,7 +10,11 @@ export class RecipeService {
     new Recipe('Receta de prueba',
       'Esta es una receta de prueba - No es rica',
       'http://www.essen.com.ar/imgs/w300-h400-c300.400/contenido/editor/Image/2015/recetas-essen-por-tipo-de-comida.jpg',
-    [new Ingredient('Pan - Tester',2), new Ingredient('Dulce de Leche - Tester',5), new Ingredient('Coco rallado - Tester', 6)])
+    [new Ingredient('Pan - Tester',2), new Ingredient('Dulce de Leche - Tester',5), new Ingredient('Coco rallado - Tester', 6)]),
+    new Recipe('Receta de prueba 2',
+      'Esta es una receta de prueba 2 - No es rica tampoco',
+      'http://www.essen.com.ar/imgs/w300-h400-c300.400/contenido/editor/Image/2015/recetas-essen-por-tipo-de-comida.jpg',
+      [new Ingredient('Pan - Tester',2), new Ingredient('Dulce de Leche - Tester',5), new Ingredient('Coco rallado - Tester', 6)])
   ];
 
   constructor() {
@@ -28,6 +32,10 @@ export class RecipeService {
     if(!exist) {
       this.recipes.push(newRecipe)
     }
+  }
+
+  getRecipe(id: number) {
+    return this.recipes[id];
   }
 
   getRecipes(){

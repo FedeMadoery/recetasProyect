@@ -3,6 +3,7 @@ import {Recipe} from "../recipe.model";
 import {RecipeService} from "../../services/recipe-service.service";
 import {Ingredient} from "../../shared/ingredients.model";
 import {ShopingListService} from "../../services/shoping-list.service";
+import {ActivatedRoute, Params} from "@angular/router";
 
 @Component({
   selector: 'app-recipe-detail',
@@ -11,12 +12,22 @@ import {ShopingListService} from "../../services/shoping-list.service";
 })
 export class RecipeDetailComponent implements OnInit{
   recipe: Recipe;
-  constructor(private recipeService: RecipeService, private shopService: ShopingListService) { }
+  id: number;
+  constructor(private recipeService: RecipeService, private shopService: ShopingListService,
+              private route: ActivatedRoute) { }
 
   ngOnInit(){
-    this.recipeService.clickedRecipe.subscribe((recipeToDetail: Recipe, recipeId: number) => {
+    /*this.recipeService.clickedRecipe.subscribe((recipeToDetail: Recipe, recipeId: number) => {
       this.recipe = recipeToDetail;
-    });
+    });*/
+
+    // Me subscribo al cambio de url, para cargar nueva receta
+    this.route.params.subscribe( (params: Params) => {
+        // Tomo el parametro que viene como string y lo paso a number
+        this.id = +params['id'];
+        this.recipe = this.recipeService.getRecipe(this.id);
+        }
+    );
   }
 
   deleteRecipe(){
